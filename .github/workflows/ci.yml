@@ -22,7 +22,7 @@ jobs:
           export PATH="$PWD/mx:$PATH"
           git clone --depth 1 https://github.com/graalvm/graal.git
           pushd graal/vm
-          mx --env ce build
+          mx --force-bash-launchers=true --dynamicimports /substratevm,/tools,/sulong,/graal-nodejs build
           popd
       - name: ls -R
         run: ls -R
